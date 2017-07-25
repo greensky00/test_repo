@@ -1,0 +1,4 @@
+[submodule "third_party/forestdb"]
+	path = third_party/forestdb
+	url = https://github.com/forestdb-kvstore/forestdb
+	branch = master
