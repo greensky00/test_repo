@@ -25,6 +25,7 @@ script:
   - rm -rf build
   - mkdir build
   - cd build
+  - cp ../cc-test-reporter ./
   - cmake -DCMAKE_BUILD_TYPE=Debug -DCODE_COVERAGE=1 ../
   - make -j2 raft_cov
 
