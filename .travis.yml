@@ -12,6 +12,7 @@ matrix:
             - g++-5
       env:
          - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+         - CODECOV_TOKEN="18735e90-ad9e-447f-bba9-7846bc08170f"
 
 before_install:
   - sudo apt-get update
@@ -21,8 +22,4 @@ install:
   - ./prepare.sh
 
 script:
-  - rm -rf build
-  - mkdir build
-  - cd build
-  - cmake -DCMAKE_BUILD_TYPE=Debug -DCODE_COVERAGE=1 ../
-  - make -j2 raft_cov
+  - ./travis_build.sh
