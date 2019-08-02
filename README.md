@@ -3,6 +3,7 @@
 NuRaft
 ======
 [![Build Status](https://travis-ci.org/greensky00/test_repo.svg?branch=master)](https://travis-ci.org/greensky00/test_repo)
+[![codecov](https://codecov.io/gh/greensky00/test_repo/branch/master/graph/badge.svg)](https://codecov.io/gh/greensky00/test_repo)
 
 Raft implementation derived from [cornerstone](https://github.com/datatechnology/cornerstone) project, which is a very lightweight C++ implementation with minimum dependencies, originally written by [Andy Chen](https://github.com/andy-yx-chen).
 
