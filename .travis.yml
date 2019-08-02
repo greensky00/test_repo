@@ -13,7 +13,10 @@ matrix:
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y cmake openssl libssl-dev
+  - sudo apt-get install -y cmake openssl libssl-dev lcov
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 install:
   - ./prepare.sh
@@ -22,6 +25,9 @@ script:
   - rm -rf build
   - mkdir build
   - cd build
-  - cmake -DCMAKE_BUILD_TYPE=Debug -DADDRESS_SANITIZER=1 ../
-  - make -j2
-  - ./runtests.sh
+  - cmake -DCMAKE_BUILD_TYPE=Debug -DCODE_COVERAGE=1 ../
+  - make -j2 raft_cov
+
+after_script:
+  - ./cc-test-reporter format-coverage -t lcov ./raft_cov.info.cleaned
+  - ./cc-test-reporter upload-coverage
